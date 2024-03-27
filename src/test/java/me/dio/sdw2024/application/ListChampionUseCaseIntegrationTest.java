@@ -1,6 +1,6 @@
 package me.dio.sdw2024.application;
 
-import me.dio.sdw2024.domain.model.Champions;
+import me.dio.sdw2024.domain.model.Champion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class ListChampionUseCaseIntegrationTest {
 
     @Test
     public void testListChampions(){
-       List<Champions> championsList = listChampionsUseCase.findAll();
-        Assertions.assertEquals(12,championsList.size());
+       List<Champion> championList = listChampionsUseCase.findAll();
+        Assertions.assertEquals(12, championList.size());
     }
 }
