@@ -3,11 +3,12 @@ package me.dio.sdw2024;
 import me.dio.sdw2024.application.AskChampionsUseCase;
 import me.dio.sdw2024.application.ListChampionsUseCase;
 import me.dio.sdw2024.ports.ChampionsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import me.dio.sdw2024.ports.GenerativeAIService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-
+@EnableFeignClients
 @SpringBootApplication
 public class SantanderDevWeek2024Application {
 
@@ -20,7 +21,7 @@ public class SantanderDevWeek2024Application {
 	}
 
 	@Bean
-	public AskChampionsUseCase provideAskChampionsUseCase(ChampionsRepository championsRepository){
-		return new AskChampionsUseCase(championsRepository);
+	public AskChampionsUseCase provideAskChampionsUseCase(ChampionsRepository championsRepository, GenerativeAIService genAiservice){
+		return new AskChampionsUseCase(championsRepository, genAiservice);
 	}
 }
