@@ -3,9 +3,9 @@ package me.dio.sdw2024.application;
 import me.dio.sdw2024.domain.exception.ChampionNotFoundException;
 import me.dio.sdw2024.domain.model.Champion;
 import me.dio.sdw2024.ports.ChampionsRepository;
-import me.dio.sdw2024.ports.GenerativeAIService;
+import me.dio.sdw2024.ports.GenerativeAiService;
 
-public record AskChampionsUseCase(ChampionsRepository championsRepository, GenerativeAIService generativeAIService) {
+public record AskChampionsUseCase(ChampionsRepository championsRepository, GenerativeAiService generativeAIService) {
     public String askChampion(Long id, String question){
         Champion champion = championsRepository.findById(id).orElseThrow(() ->
                 new ChampionNotFoundException(id));
@@ -18,9 +18,6 @@ public record AskChampionsUseCase(ChampionsRepository championsRepository, Gener
                     Segue a pergunta, o nome do campeão e sua respectiva lore (História):
                     
                 """;
-
-        generativeAIService.generateContent(objective,championContext);
-
-        return championContext;
+        return  generativeAIService.generateContent(objective,championContext);
     }
 }

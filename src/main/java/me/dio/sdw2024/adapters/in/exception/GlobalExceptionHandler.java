@@ -1,4 +1,4 @@
-package me.dio.sdw2024.adapters.in;
+package me.dio.sdw2024.adapters.in.exception;
 
 import me.dio.sdw2024.domain.exception.ChampionNotFoundException;
 import org.slf4j.Logger;

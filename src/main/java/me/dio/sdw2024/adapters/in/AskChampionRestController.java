@@ -3,15 +3,13 @@ package me.dio.sdw2024.adapters.in;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import me.dio.sdw2024.application.AskChampionsUseCase;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Campeões", description = "Endpoints do domínio de campeões de LoL")
 @RestController
 @RequestMapping("/champions")
 public record AskChampionRestController(AskChampionsUseCase useCase) {
+    @CrossOrigin
     @PostMapping("/{championId}/ask")
     public AskChampionResponse askChampion(
             @PathVariable Long championId,
@@ -23,7 +21,6 @@ public record AskChampionRestController(AskChampionsUseCase useCase) {
     public record AskChampionRequest(String question) {
 
     }
-
     public record AskChampionResponse(String answer) {
 
     }

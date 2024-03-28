@@ -15,4 +15,4 @@ openai:
 
 gemini:
   base-url: https://generativelanguage.googleapis.com
-  api-key: ${OPENAI_API_KEY}
+  api-key: ${GEMINI_API_KEY}
